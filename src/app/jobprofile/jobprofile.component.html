@@ -1,0 +1,118 @@
+<div>
+    <mat-card class="bg-info ayow px-5">
+
+        <mat-card-title>Job Profile</mat-card-title>
+    
+    
+        <mat-card-content>
+    
+            <form class="login-form data-form" [formGroup]="form" (ngSubmit)="onSubmit()">
+    
+                <mat-form-field >
+                    <input 
+                    matInput
+                    type="text"
+                    name="companyName"
+                    placeholder="Company Name"
+                    formControlName="companyName"
+                    >
+    
+                    <mat-error *ngIf="companyName.errors?.required">
+                        The Company Name is Required!
+                    </mat-error>
+    
+                    <mat-error *ngIf="companyName.errors?.minlength">
+                        The Company Name is too short
+                    </mat-error>
+                    
+                </mat-form-field>
+                <br>
+                <mat-form-field>
+                    <input 
+                    matInput
+                    type="text"
+                    name="location"
+                    placeholder="Location"
+                    formControlName="location"
+                    >
+    
+                    <mat-error *ngIf="location.errors?.required">
+                        The company location is Required!
+                    </mat-error>
+    
+                    <mat-error *ngIf="location.errors?.minlength">
+                        The location is too short
+                    </mat-error>
+                    
+                </mat-form-field>
+    
+    
+                <br>
+    
+                <mat-form-field>
+                    <input 
+                    matInput
+                    type="text"
+                    name="jobTitle"
+                    placeholder="Job Title"
+                    formControlName="jobtitle"
+                    >
+    
+                    <mat-error *ngIf="jobtitle.errors?.required">
+                        The Job Title is required!
+                    </mat-error>
+    
+                    <mat-error *ngIf="jobtitle.errors?.minlength">
+                        The Job Title is too short!
+                    </mat-error>
+                </mat-form-field>
+    
+                <br>
+    
+                <mat-form-field>
+                    <input 
+                    matInput
+                    type="text"
+                    name="jobDescription"
+                    placeholder="Job Description"
+                    formControlName="jobDescription"
+                    >
+    
+                    <mat-error *ngIf="jobdescription.errors?.required">
+                        The Job Description is required!
+                    </mat-error>
+    
+                    <mat-error *ngIf="jobdescription.errors?.minlength">
+                        The Job Description is too short!
+                    </mat-error>
+                </mat-form-field>
+    
+    
+                <br>
+    
+                <mat-form-field>
+                    <input 
+                    matInput
+                    type="number"
+                    name="salary"
+                    placeholder="Salary per month"
+                    formControlName="salary"
+                    >
+                    <mat-error *ngIf="salary.errors?.required">
+                        The salary is required!
+                    </mat-error>
+                    <mat-error *ngIf="salary.errors?.min">
+                        The salary should not be that low
+                    </mat-error>
+                </mat-form-field>
+    
+    
+    
+                <br>
+    
+                <button mat-raised-button color="primary" [disabled]="!form.valid">Submit</button>
+            </form>
+        </mat-card-content>
+    
+    </mat-card>
+</div>

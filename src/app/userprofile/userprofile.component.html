@@ -1,0 +1,149 @@
+<div>
+    <mat-card class="login-page ayow bg-light px-5">
+        <mat-card-title>User Profile</mat-card-title>
+        <mat-card-content>
+            <form
+                class="login-form data-form"
+                (ngSubmit)="onSubmit(userprofile)"
+                #userprofile="ngForm"
+            >
+                <mat-form-field>
+                    <input 
+                    matInput
+                    type="text"
+                    name="fname"
+                    text
+                    [(ngModel)]="val.firstName"
+                    required
+                    placeholder="First Name"
+                    minlength="2"
+                    #fname="ngModel"
+                    >
+    
+                    <mat-error *ngIf="fname.errors?.required">
+                        Your first name is required.
+                    </mat-error>
+
+                    <mat-error *ngIf="fname.errors?.minlength">
+                        Your First Name is too Short
+                    </mat-error>
+                
+                </mat-form-field>
+    
+    
+                <br>
+    
+    
+                <mat-form-field>
+                    <input 
+                    matInput
+                    type="text"
+                    name="lname"
+                    text
+                    [(ngModel)]="val.lastName"
+                    required
+                    placeholder="Last Name"
+                    #lname="ngModel"
+                    minlength="2"
+                    >
+    
+                    <mat-error *ngIf="lname.errors?.required">
+                        Your last name is required.
+                    </mat-error>
+
+                    <mat-error *ngIf="lname.errors?.minlength">
+                        Your Last Name is too Short
+                    </mat-error>
+                </mat-form-field>
+    
+                <br>
+    
+                <mat-form-field>
+                    <input 
+                    matInput
+                    type="email"
+                    name="email"
+                    email
+                    [(ngModel)]="val.emailAddress"
+                    required
+                    placeholder="Email Address"
+                    #email="ngModel"
+                    >
+    
+                    <mat-error *ngIf="email.errors?.email">
+                        Please input the correct email
+                    </mat-error>
+    
+                    <mat-error *ngIf="email.errors?.required">
+                        Email address is required
+                    </mat-error>
+                </mat-form-field>
+    
+                <br>
+    
+    
+                <mat-form-field>
+                    <input 
+                    matInput
+                    type="text"
+                    name="password"
+                    text
+                    [(ngModel)]="val.password"
+                    required
+                    placeholder="Password"
+                    #password="ngModel"
+                    minlength="6"
+                    >
+    
+                    <mat-error *ngIf="password.errors?.required">
+                        Password is required.
+                    </mat-error>
+
+                    <mat-error *ngIf="password.errors?.minlength">
+                        Password must be at least 6 characters
+                    </mat-error>
+
+                </mat-form-field>
+    
+                <br>
+    
+    
+                <mat-form-field>
+                    <input 
+                    matInput
+                    type="number"
+                    name="cpnumber"
+                    number
+                    [(ngModel)]="val.cpNum"
+                    required
+                    placeholder="(+63)"
+                    min="9000000001"
+                    #cpNum="ngModel"
+                    >
+                    
+                    <mat-error *ngIf="cpNum.errors?.required">
+                        Your contact information is required.
+                    </mat-error>
+                    <mat-error *ngIf="cpNum.errors?.min">
+                        Your contact number must be correct
+                    </mat-error>
+                </mat-form-field>
+    
+    
+
+                <br>
+                <br>
+                <button 
+                    mat-raised-button 
+                    color="primary" 
+                    [disabled]="fname.errors?.required || lname.errors?.required || email.errors?.required || password.errors?.required || cpNum.errors?.required || 
+                    cpNum.errors?.min || email.errors?.email || password.errors?.minlength"
+                    (click)="getVal()"
+                    >Submit</button>
+    
+            </form>
+    
+    
+        </mat-card-content>
+    </mat-card>
+</div>
